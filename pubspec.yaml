@@ -1,0 +1,54 @@
+name: pointcalc_clone
+description: Tournament scoring and team management for esports events.
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  crypto: ^3.0.6
+  archive: ^4.5.2
+  csv: ^6.0.0
+  cross_file: ^0.3.4+2
+  file_picker: ^8.1.7
+  gal: ^2.3.3
+  google_fonts: ^6.2.1
+  google_mlkit_text_recognition: ^0.14.0
+  image_picker: ^1.1.2
+  path_provider: ^2.1.5
+  provider: ^6.1.2
+  screenshot: ^3.0.0
+  share_plus: ^10.1.4
+  url_launcher: ^6.3.2
+  xml: ^7.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.4
+  flutter_native_splash: ^2.4.6
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/logo.png
+
+flutter_launcher_icons:
+  android: true
+  image_path: assets/images/logo.png
+  adaptive_icon_background: '#0B0612'
+  adaptive_icon_foreground: assets/images/logo.png
+
+flutter_native_splash:
+  color: '#0B0612'
+  image: assets/images/logo.png
+  android: true
+  ios: false
+  android_12:
+    color: '#0B0612'
+    image: assets/images/logo.png
