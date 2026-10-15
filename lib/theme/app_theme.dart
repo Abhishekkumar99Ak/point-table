@@ -1,61 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-abstract final class AppColors {
-  static const background = Color(0xFF0B0612);
-  static const backgroundEnd = Color(0xFF190F2A);
-  static const surface = Color(0xFF24173D);
-  static const surfaceRaised = Color(0xFF30204D);
-  static const accent = Color(0xFFA855F7);
-  static const accentLight = Color(0xFFC084FC);
-  static const gold = Color(0xFFF59E0B);
-  static const mint = Color(0xFF73E2C3);
-  static const text = Color(0xFFF4EFFA);
-  static const muted = Color(0xFF9D91AA);
-  static const outline = Color(0xFF3A2C49);
-}
+class AppTheme {
+  // Pointcalc हेडर ग्रेडिएंट (मैरून से डार्क रेड)
+  static const LinearGradient headerGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      Color(0xFF9E3636),
+      Color(0xFF6B1A1E),
+    ],
+  );
 
-abstract final class AppTheme {
-  static ThemeData get dark {
-    final base = ThemeData.dark(useMaterial3: true);
-    return base.copyWith(
-      scaffoldBackgroundColor: AppColors.background,
-      colorScheme: const ColorScheme.dark(
-        primary: AppColors.accentLight,
-        secondary: AppColors.mint,
-        surface: AppColors.surface,
-        error: Color(0xFFFF7185),
+  // कलर्स (डिट्टो Pointcalc)
+  static const Color scaffoldBg = Color(0xFFFBF6F6);
+  static const Color cardBg = Colors.white;
+  static const Color primaryMaroon = Color(0xFF7A2026);
+  static const Color softPinkChip = Color(0xFFFDE8E8);
+  static const Color textDark = Color(0xFF1E1E1E);
+  static const Color textMuted = Color(0xFF757575);
+  static const Color deleteRed = Color(0xFFC93B3B);
+  static const Color dividerLine = Color(0xFFEEEEEE);
+
+  static ThemeData get lightTheme {
+    return ThemeData(
+      useMaterial3: true,
+      scaffoldBackgroundColor: scaffoldBg,
+      primaryColor: primaryMaroon,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: primaryMaroon,
+        primary: primaryMaroon,
+        surface: cardBg,
       ),
-      textTheme: GoogleFonts.spaceGroteskTextTheme(base.textTheme).apply(
-        bodyColor: AppColors.text,
-        displayColor: AppColors.text,
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        filled: true,
-        fillColor: AppColors.surfaceRaised,
-        hintStyle: const TextStyle(color: AppColors.muted),
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 17),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide.none,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: AppColors.outline),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide:
-              const BorderSide(color: AppColors.accentLight, width: 1.4),
-        ),
-      ),
-      sliderTheme: base.sliderTheme.copyWith(
-        activeTrackColor: AppColors.accentLight,
-        inactiveTrackColor: AppColors.outline,
-        thumbColor: AppColors.text,
-        overlayColor: AppColors.accent.withValues(alpha: 0.2),
-      ),
+      fontFamily: 'sans-serif',
     );
   }
 }
