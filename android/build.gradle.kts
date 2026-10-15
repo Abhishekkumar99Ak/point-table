@@ -16,10 +16,6 @@ subprojects {
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 }
 subprojects {
-    project.evaluationDependsOn(":app")
-}
-
-subprojects {
     afterEvaluate {
         val androidExtension = extensions.findByName("android") ?: return@afterEvaluate
         val compileSdkSetter = androidExtension.javaClass.methods.firstOrNull { method ->
@@ -31,6 +27,10 @@ subprojects {
             compileSdkSetter.invoke(androidExtension, sdkValue)
         }
     }
+}
+
+subprojects {
+    project.evaluationDependsOn(":app")
 }
 
 tasks.register<Delete>("clean") {
